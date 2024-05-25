@@ -26,10 +26,11 @@ jobs:
       - name: Build the Angular app
         run: npm run build
       - name: print token
-        run: echo "${{ secrets.GITHUB_TOKEN }}"
+        run: echo ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/browser
+          angular_dist_build_folder: dist/
